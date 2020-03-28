@@ -9,6 +9,12 @@ export class AccountType {
     id: string;
 
     @Field()
+    accountNumber: string;
+
+    @Field()
+    routingNumber: string;
+
+    @Field()
     name: string;
     
     @Field(() => Float)

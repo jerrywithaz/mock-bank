@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import { SidebarProps } from './types';
 
-export const Sidebar = styled.aside`
-    display: flex;
-    width: 250px;
-    height: 100%;
-    flex-shrink: 0;
-    background: rgb(72,81,115);
-    background: linear-gradient(90deg, rgba(72,81,115,1) 0%, rgba(36,40,62,1) 100%);
-`;
+export const useDashboardSidebarStyles = makeStyles<Theme, SidebarProps>(theme => ({
+    drawer: {
+        width: (props) => props.width,
+        flexShrink: 0,
+      },
+      drawerPaper: {
+        width: props => props.width,
+      },
+}));

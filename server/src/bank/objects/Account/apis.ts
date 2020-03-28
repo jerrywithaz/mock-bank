@@ -1,5 +1,5 @@
 import { AccountType } from './types';
-import api from '../../api';
+import api from '../../../api';
 
 export async function getAccount(accountId: string): Promise<AccountType> {
     const response = await api.get<AccountType>(`/json/bank/accounts/${accountId}`);

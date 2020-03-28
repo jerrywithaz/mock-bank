@@ -7,7 +7,9 @@ const queries = {
                 id,
                 name,
                 availableBalance,
-                type
+                type,
+                accountNumber,
+                routingNumber
             }
         }
     `

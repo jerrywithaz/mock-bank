@@ -14,7 +14,6 @@ const AccountsHome: FunctionComponent<AccountsHomeProps> = () => {
 
     return (
         <Styled.AccountsHome>
-            Accounts Home
             <AccountsSummary accounts={accounts}/>
         </Styled.AccountsHome>
     );

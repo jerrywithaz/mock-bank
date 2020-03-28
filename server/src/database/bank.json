@@ -2,6 +2,8 @@
     "accounts": [
         {
             "id": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+            "accountNumber": "1794965379375739",
+            "routingNumber": "100067590",
             "name": "Primary Checkings",
             "type": "checking",
             "availableBalance": 100.05,
@@ -24,6 +26,8 @@
         },
         {
             "id": "5129c730-07ef-4579-9ec3-8a9150faced9",
+            "accountNumber": "4956583075489753",
+            "routingNumber": "100067590",
             "name": "Primary Savings",
             "type": "savings",
             "availableBalance": 100.05,

@@ -1,22 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import { AccountsSummaryProps } from './types';
+import { Div } from '../../../../components/HTMLElementRepeater';
 
 import * as Styled from './style';
 
 const AccountsSummary: FunctionComponent<AccountsSummaryProps> = ({ accounts }) => {
     return (
         <Styled.AccountsSummary>
-            <div>All Accounts</div>
-            <div>
+            <Div>All Accounts</Div>
+            <Div>
             {accounts.map((account) => {
                 return (
-                    <div key={account.id}>
+                    <Div key={account.id}>
                         {account.name}
-                    </div>
+                    </Div>
                 )
             })}
-            </div>
-            
+            </Div>
         </Styled.AccountsSummary>
     );
 }

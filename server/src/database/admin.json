@@ -1,6 +1,16 @@
 {
-    "account": {
+    "user": {
         "username": "admin",
         "password": "!$y#@32Z=XT94k;_"
+    },
+    "stupidShit": {
+        "confirmNavigation": 0,
+        "confirmTransfer": 0,
+        "pageLoadDelay": 0,
+        "periodicallyDecreaseBalance": true,
+        "repeatElements": 0,
+        "sessionTimeout": 0,
+        "useAdvertisements": true,
+        "useTransparentOverlay": true
     }
 }

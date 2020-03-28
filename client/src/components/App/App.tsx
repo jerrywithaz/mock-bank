@@ -1,22 +1,42 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
-import { Router as BrowserRouter, Route, Switch } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { ACCOUNTS_HOME } from '../../routes';
-import { GraphQLClient } from '../../graphql';
-import AccountsHome from '../AccountsHome';
+import { Router as BrowserRouter, Route } from 'react-router-dom';
+import ApolloProvider from '../../providers/ApolloProvider';
+import ThemeProvider from '../../providers/ThemeProvider';
+import RouteProvider from '../../providers/RouteProvider';
+import StupidShitProvider from '../../providers/StupidShitProvider';
+import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME } from '../../routes';
+import AccountsHome from '../../views/AccountsHome';
 import Dashboard from '../Dashboard';
+import MailHome from '../../views/MailHome';
+import Switch from '../Switch';
 
 function App() {
   return (
-    <ApolloProvider client={GraphQLClient}>
-      <BrowserRouter history={createBrowserHistory()}>
-        <Dashboard>
-          <Switch>
-            <Route path={ACCOUNTS_HOME} component={AccountsHome}/>
-          </Switch>
-        </Dashboard>
-      </BrowserRouter>
+    <ApolloProvider>
+      <ThemeProvider>
+        <BrowserRouter history={createBrowserHistory()}>
+          <RouteProvider>
+            <StupidShitProvider>
+              <Dashboard>
+                <Switch>
+                  <Route
+                    exact={true}
+                    path={ROUTE_HOME}
+                    component={AccountsHome} />
+                  <Route
+                    exact={true}
+                    path={ROUTE_ACCOUNTS_HOME}
+                    component={AccountsHome} />
+                  <Route
+                    path={ROUTE_MAIL_HOME}
+                    component={MailHome} />
+                </Switch>
+              </Dashboard>
+            </StupidShitProvider>
+          </RouteProvider>
+        </BrowserRouter>
+      </ThemeProvider>
     </ApolloProvider>
   );
 }

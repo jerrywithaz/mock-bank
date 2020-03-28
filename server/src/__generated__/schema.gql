@@ -5,6 +5,8 @@
 
 input AccountInput {
   id: ID!
+  accountNumber: String!
+  routingNumber: String!
   name: String!
   availableBalance: Float!
   transactions: [TransactionInput!]!
@@ -14,6 +16,8 @@ input AccountInput {
 """The Account Object Type."""
 type AccountType {
   id: ID!
+  accountNumber: String!
+  routingNumber: String!
   name: String!
   availableBalance: Float!
   transactions: [TransactionType!]!
@@ -21,10 +25,34 @@ type AccountType {
 }
 
 type Query {
+  stupidShit: StupidShitType!
   account(accountId: ID!): AccountType
   accounts: [AccountType!]!
   transaction(accountId: ID!, transactionId: ID!): TransactionType
   transactions(accountId: ID!): [TransactionType!]!
+}
+
+input StupidShitInput {
+  confirmNavigation: Int!
+  confirmTransfer: Int!
+  pageLoadDelay: Int!
+  periodicallyDecreaseBalance: Boolean!
+  repeatElements: Int!
+  sessionTimeout: Int!
+  useAdvertisements: Boolean!
+  useTransparentOverlay: Boolean!
+}
+
+"""The Stupid Shit Object Type."""
+type StupidShitType {
+  confirmNavigation: Int!
+  confirmTransfer: Int!
+  pageLoadDelay: Int!
+  periodicallyDecreaseBalance: Boolean!
+  repeatElements: Int!
+  sessionTimeout: Int!
+  useAdvertisements: Boolean!
+  useTransparentOverlay: Boolean!
 }
 
 input TransactionInput {

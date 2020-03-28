@@ -10,6 +10,8 @@ export type Scalars = {
 
 export type AccountInput = {
   id: Scalars['ID'];
+  accountNumber: Scalars['String'];
+  routingNumber: Scalars['String'];
   name: Scalars['String'];
   availableBalance: Scalars['Float'];
   transactions: Array<TransactionInput>;
@@ -19,6 +21,8 @@ export type AccountInput = {
 export type AccountType = {
    __typename?: 'AccountType';
   id: Scalars['ID'];
+  accountNumber: Scalars['String'];
+  routingNumber: Scalars['String'];
   name: Scalars['String'];
   availableBalance: Scalars['Float'];
   transactions: Array<TransactionType>;
@@ -27,6 +31,7 @@ export type AccountType = {
 
 export type Query = {
    __typename?: 'Query';
+  stupidShit: StupidShitType;
   account?: Maybe<AccountType>;
   accounts: Array<AccountType>;
   transaction?: Maybe<TransactionType>;
@@ -47,6 +52,29 @@ export type QueryTransactionArgs = {
 
 export type QueryTransactionsArgs = {
   accountId: Scalars['ID'];
+};
+
+export type StupidShitInput = {
+  confirmNavigation: Scalars['Int'];
+  confirmTransfer: Scalars['Int'];
+  pageLoadDelay: Scalars['Int'];
+  periodicallyDecreaseBalance: Scalars['Boolean'];
+  repeatElements: Scalars['Int'];
+  sessionTimeout: Scalars['Int'];
+  useAdvertisements: Scalars['Boolean'];
+  useTransparentOverlay: Scalars['Boolean'];
+};
+
+export type StupidShitType = {
+   __typename?: 'StupidShitType';
+  confirmNavigation: Scalars['Int'];
+  confirmTransfer: Scalars['Int'];
+  pageLoadDelay: Scalars['Int'];
+  periodicallyDecreaseBalance: Scalars['Boolean'];
+  repeatElements: Scalars['Int'];
+  sessionTimeout: Scalars['Int'];
+  useAdvertisements: Scalars['Boolean'];
+  useTransparentOverlay: Scalars['Boolean'];
 };
 
 export type TransactionInput = {

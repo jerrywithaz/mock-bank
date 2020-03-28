@@ -1,5 +1,5 @@
 import { TransactionType } from "./types";
-import api from "../../api";
+import api from "../../../api";
 
 export async function getTransaction(accountId: string, transactionId: string) {
     const response = await api.get<TransactionType>(`/json/bank/accounts/${accountId}/transactions/${transactionId}`);
