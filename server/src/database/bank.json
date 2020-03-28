@@ -21,6 +21,21 @@
                     "availableBalance": 131.47
                 }
             ]
+        },
+        {
+            "id": "5129c730-07ef-4579-9ec3-8a9150faced9",
+            "name": "Primary Savings",
+            "type": "savings",
+            "availableBalance": 100.05,
+            "transactions": [
+                {
+                    "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
+                    "date": "2020-03-27T23:10:12-05:00",
+                    "description": "Direct Deposit",
+                    "amount": 1506.89,
+                    "availableBalance": 0.00
+                }
+            ]
         }
     ]
 }
