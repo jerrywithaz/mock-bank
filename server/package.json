@@ -1,0 +1,37 @@
+{
+  "name": "mock-bank-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Zerry Hogan",
+  "license": "MIT",
+  "scripts": {
+    "start:prod": "NODE_ENV=production src/index.ts",
+    "start:dev": "yarn lint && nodemon --config ./nodemon.json",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  },
+  "dependencies": {
+    "@types/json-server": "^0.14.2",
+    "apollo-server": "^2.10.1",
+    "apollo-server-express": "^2.11.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "class-validator": "^0.11.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "json-server": "^0.16.1",
+    "lodash": "^4.17.15",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^0.17.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.3",
+    "@types/lodash": "^4.14.149",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  }
+}

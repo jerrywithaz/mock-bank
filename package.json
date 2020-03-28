@@ -1,0 +1,10 @@
+{
+  "name": "mock-bank",
+  "version": "1.0.0",
+  "description": "A mock bank for refund scammers.",
+  "main": "index.js",
+  "repository": "https://github.com/jerrywithaz/mock-bank.git",
+  "author": "Zerry Hogan",
+  "license": "MIT",
+  "private": true
+}
