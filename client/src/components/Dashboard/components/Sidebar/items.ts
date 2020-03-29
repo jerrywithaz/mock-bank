@@ -1,4 +1,4 @@
-import { ROUTE_ACCOUNTS_HOME } from '../../../../routes';
+import { ROUTE_ACCOUNTS_HOME, ROUTE_CONTACT_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CARDS_HOME } from 'routes';
 import { SidebarItem } from "./types";
 
 const items: SidebarItem[] = [
@@ -9,6 +9,10 @@ const items: SidebarItem[] = [
             key: "accounts_summary",
             title: "Accounts Summary",
             url: ROUTE_ACCOUNTS_HOME
+        }, {
+            key: "cards_summary",
+            title: "Cards Summary",
+            url: ROUTE_CARDS_HOME
         }, {
             key: "add_an_account",
             title: "Add an Account",
@@ -59,15 +63,15 @@ const items: SidebarItem[] = [
         items: [{
             key: "contact",
             title: "Contact Us",
-            url: "/contact"
+            url: ROUTE_CONTACT_HOME
         }, {
             key: "faqs",
             title: "FAQ's",
-            url: "/faqs"
+            url: ROUTE_FAQ_HOME
         }, {
             key: "feedback",
             title: "Give Us Feedback",
-            url: "/feedback"
+            url: ROUTE_FEEDBACK_HOME
         }]
     }
 ];

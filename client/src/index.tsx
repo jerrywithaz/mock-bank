@@ -4,6 +4,7 @@ import App from './components/App';
 import GlobalStyles from './components/GlobalStyles';
 
 import 'antd/dist/antd.css';
+import 'react-credit-cards/es/styles-compiled.css';
 
 ReactDOM.render(
   <React.StrictMode>

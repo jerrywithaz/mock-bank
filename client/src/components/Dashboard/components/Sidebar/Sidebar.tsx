@@ -18,7 +18,7 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
             const activeItem = itemGroup.items.find((item) => {
                 return item.url === location.pathname;
             });
-            return activeMenuKey ? activeMenuKey: activeItem ? activeItem.key : null;
+            return activeMenuKey ? activeMenuKey : activeItem ? activeItem.key : null;
         }, null);
 
         if (activeMenuKey) {
@@ -30,23 +30,25 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
     useEffect(setActiveMenuItemFromLocation, [location]);
 
     return (
-        <Styled.Menu theme="dark" selectedKeys={selectedKeys}>
-            <Styled.Logo/>
-            {items.map((itemGroup) => {
-                return (
-                    <Styled.MenuItemGroup key={itemGroup.key} title={<Div>{itemGroup.title}</Div>}>
-                        {itemGroup.items.map((item) => {
-                            return (
-                                <Menu.Item
-                                    key={item.key}>
-                                    <Link to={item.url}><Div>{item.title}</Div></Link>
-                                </Menu.Item>
-                            );
-                        })}
-                    </Styled.MenuItemGroup>
-                );
-            })}
-        </Styled.Menu>
+        <Styled.Sidebar>
+            <Styled.Logo />
+            <Styled.Menu theme="dark" selectedKeys={selectedKeys} mode="inline">
+                {items.map((itemGroup) => {
+                    return (
+                        <Styled.MenuItemGroup key={itemGroup.key} title={<Div>{itemGroup.title}</Div>}>
+                            {itemGroup.items.map((item) => {
+                                return (
+                                    <Menu.Item
+                                        key={item.key}>
+                                        <Link to={item.url}><Div>{item.title}</Div></Link>
+                                    </Menu.Item>
+                                );
+                            })}
+                        </Styled.MenuItemGroup>
+                    );
+                })}
+            </Styled.Menu>
+        </Styled.Sidebar>
     );
 
 }

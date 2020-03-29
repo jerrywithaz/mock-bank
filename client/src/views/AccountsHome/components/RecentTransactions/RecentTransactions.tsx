@@ -1,10 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import moment from 'moment';
-import { List, Avatar, Tooltip } from 'antd';
-import { MoneyCollectFilled, FlagFilled, UndoOutlined } from '@ant-design/icons';
-import { Div } from 'components/HTMLElementRepeater';
+import { List} from 'antd';
 import Card from 'ui/Card';
 import { RecentTransactionsProps } from './types';
+import Transaction from './components/Transaction';
 
 import * as Styled from './style';
 
@@ -17,26 +15,7 @@ const RecentTransactions: FunctionComponent<RecentTransactionsProps> = ({ transa
                     <List
                         dataSource={transactions}
                         renderItem={(transaction) => (
-                            <List.Item
-                                key={transaction.id}
-                                actions={[
-                                    <Tooltip key={"action-flag"} title="Flag as Suspicious">
-                                        <FlagFilled/>
-                                    </Tooltip>
-                                    ,
-                                    <Tooltip key={"action-undo"} title="Undo Transaction">
-                                        <UndoOutlined/>
-                                    </Tooltip>,
-                                ]}>
-                                <List.Item.Meta
-                                    avatar={
-                                        <Avatar icon={<MoneyCollectFilled />} />
-                                    }
-                                    title={<Div uppercase>{transaction.description}</Div>}
-                                    description={<Div capitalize>{transaction.type}</Div>}
-                                />
-                                <Div>{moment(transaction.date).format("LLLL")}</Div>
-                            </List.Item>
+                            <Transaction transaction={transaction}/>
                         )}
                     />
                 )}

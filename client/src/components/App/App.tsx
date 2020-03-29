@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { Router as BrowserRouter } from 'react-router-dom';
-import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME, ROUTE_FAQ_HOME } from 'routes';
+import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CONTACT_HOME, ROUTE_CARDS_HOME } from 'routes';
 import ApolloProvider from 'providers/ApolloProvider';
 import ThemeProvider from 'providers/ThemeProvider';
 import RouteProvider from 'providers/RouteProvider';
@@ -9,9 +9,12 @@ import StupidShitProvider from 'providers/StupidShitProvider';
 import AccountsHome from 'views/AccountsHome';
 import MailHome from 'views/MailHome';
 import FaqHome from 'views/FaqHome';
+import FeedbackHome from 'views/FeedbackHome';
 import Dashboard from 'components/Dashboard';
 import Switch from 'components/Switch';
-import DelayedRoute from 'components/DelayedRoute';
+import AnnoyingRoute from 'components/AnnoyingRoute';
+import ContactHome from 'views/ContactHome';
+import CardsSummary from 'views/CardsSummary';
 
 function App() {
   return (
@@ -22,20 +25,29 @@ function App() {
             <StupidShitProvider>
               <Dashboard>
                 <Switch>
-                  <DelayedRoute
+                  <AnnoyingRoute
                     exact={true}
                     path={ROUTE_HOME}
                     component={AccountsHome} />
-                  <DelayedRoute
+                  <AnnoyingRoute
                     exact={true}
                     path={ROUTE_ACCOUNTS_HOME}
                     component={AccountsHome} />
-                  <DelayedRoute
+                  <AnnoyingRoute
                     path={ROUTE_MAIL_HOME}
                     component={MailHome} />
-                  <DelayedRoute
+                  <AnnoyingRoute
+                    path={ROUTE_CONTACT_HOME}
+                    component={ContactHome} />
+                  <AnnoyingRoute
                     path={ROUTE_FAQ_HOME}
                     component={FaqHome} />
+                  <AnnoyingRoute
+                    path={ROUTE_FEEDBACK_HOME}
+                    component={FeedbackHome} />
+                  <AnnoyingRoute
+                    path={ROUTE_CARDS_HOME}
+                    component={CardsSummary} />
                 </Switch>
               </Dashboard>
             </StupidShitProvider>

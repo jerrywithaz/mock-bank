@@ -7,3 +7,6 @@ export const ROUTE_MAIL_ITEM = "/mail/:id";
 export const ROUTE_NOTIFICATIONS_HOME = "/notifications";
 export const ROUTE_ADMIN_HOME = "/admin";
 export const ROUTE_FAQ_HOME = "/faqs";
+export const ROUTE_FEEDBACK_HOME = "/feedback";
+export const ROUTE_CONTACT_HOME = "/contact";
+export const ROUTE_CARDS_HOME = "/cards";
