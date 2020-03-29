@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0px;
         font-family: "Segoe-UI", sans-serif;
-        background: #F5F6FA;
+        background: #ECECEC;
     }
 
     #root {

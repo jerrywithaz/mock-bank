@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, useLocation } from 'react-router-dom';
-import { RouteState } from '../../providers/RouteProvider/types';
+import { RouteState } from 'providers/RouteProvider/types';
 
 /**
  * Shows the 404 page when a visited url is not found.

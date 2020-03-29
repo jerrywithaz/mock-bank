@@ -13,12 +13,7 @@ const RouteProvider: FunctionComponent<RouteProviderProps> = ({
 
     return (
         <RouteContext.Provider value={{status: state.status}}>
-            {state.status === 404 && (
-                <div>Page not found</div>
-            )}
-            {state.status === 200 && (
-                children
-            )}
+            {children}
         </RouteContext.Provider>
     );
 

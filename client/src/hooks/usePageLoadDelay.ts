@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useApolloClient } from "@apollo/react-hooks";
 import { gql } from 'apollo-boost';
-import { StupidShitType } from "../types";
+import { StupidShitType } from "types";
 
 const query = gql`
     query GetComponentDelay {

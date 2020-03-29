@@ -1,31 +1,46 @@
 import React, { FunctionComponent } from 'react';
-import { Column } from 'material-table';
+import moment from 'moment';
+import { List, Avatar, Tooltip } from 'antd';
+import { MoneyCollectFilled, FlagFilled, UndoOutlined } from '@ant-design/icons';
+import { Div } from 'components/HTMLElementRepeater';
+import Card from 'ui/Card';
 import { RecentTransactionsProps } from './types';
-import { Div } from '../../../../components/HTMLElementRepeater';
-import Table from '../../../../ui/Table';
-import { AccountHomeRecentTransactionsQuery } from '../../types';
-import createStringDollarAmount from '../../../../utils/createStringDollarAmount';
 
 import * as Styled from './style';
 
 const RecentTransactions: FunctionComponent<RecentTransactionsProps> = ({ transactions }) => {
 
-    const columns: Column<AccountHomeRecentTransactionsQuery>[] = [
-        { title: 'Date', render: (data) => <Div truncate>{data.date}</Div> },
-        { title: 'Description', render: (data) => <Div truncate uppercase>{data.description}</Div> },
-        { title: 'Amount', render: (data) => <Div capitalize>{createStringDollarAmount(data.amount)}</Div> }
-    ];
-
     return (
         <Styled.RecentTransactions>
-            {transactions.length && (
-                <Table<AccountHomeRecentTransactionsQuery>
-                    columns={columns}
-                    data={transactions}
-                    title="Recent Transactions"
-                    options={{ paging: false, search: false }}
-                    initialSelectedRowId={transactions[0].id} />
-            )}
+            <Card title="Recent Transactions" maxHeight={400}>
+                {transactions.length && (
+                    <List
+                        dataSource={transactions}
+                        renderItem={(transaction) => (
+                            <List.Item
+                                key={transaction.id}
+                                actions={[
+                                    <Tooltip key={"action-flag"} title="Flag as Suspicious">
+                                        <FlagFilled/>
+                                    </Tooltip>
+                                    ,
+                                    <Tooltip key={"action-undo"} title="Undo Transaction">
+                                        <UndoOutlined/>
+                                    </Tooltip>,
+                                ]}>
+                                <List.Item.Meta
+                                    avatar={
+                                        <Avatar icon={<MoneyCollectFilled />} />
+                                    }
+                                    title={<Div uppercase>{transaction.description}</Div>}
+                                    description={<Div capitalize>{transaction.type}</Div>}
+                                />
+                                <Div>{moment(transaction.date).format("LLLL")}</Div>
+                            </List.Item>
+                        )}
+                    />
+                )}
+            </Card>
         </Styled.RecentTransactions>
     );
 }

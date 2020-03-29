@@ -6,4 +6,5 @@ export const Content = styled.main`
     height: 100%;
     flex-grow: 1;
     overflow: auto;
+    padding: 20px;
 `;

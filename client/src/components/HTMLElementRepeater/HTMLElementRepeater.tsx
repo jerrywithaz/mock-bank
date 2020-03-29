@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
+import { useStupidShit } from 'providers/StupidShitProvider';
 import { HTMLElementRepeaterProps } from './types';
-import { useStupidShit } from '../../providers/StupidShitProvider';
 
 import * as Styled from './style';
 

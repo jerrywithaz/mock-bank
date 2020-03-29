@@ -15,7 +15,8 @@ export const accountsHomeQuery = gql`
             date,
             amount,
             description,
-            availableBalance
+            availableBalance,
+            type
         }
     }
 `;

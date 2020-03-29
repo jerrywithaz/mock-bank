@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Switch as ReactRouterSwitch } from 'react-router-dom';
+import RouteNotFound from 'components/RouteNotFound';
 import { SwitchProps } from './types';
-import RouteNotFound from '../RouteNotFound';
 
 const Switch: FunctionComponent<SwitchProps> = ({ children }) => {
 

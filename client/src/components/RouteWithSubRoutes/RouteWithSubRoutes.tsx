@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Route } from 'react-router-dom';
+import RouteNotFound from 'components/RouteNotFound';
 import { RouteWithSubRoutesProps } from './types';
-import RouteNotFound from '../RouteNotFound';
 
 function interpolateParams(path: string, params: any = {}) {
     const regex = /:([a-zA-Z]+)/g;
