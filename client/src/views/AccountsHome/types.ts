@@ -1,7 +1,14 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { AccountType } from '../../types';
+import { AccountType, TransactionType } from '../../types';
 
 export type AccountHomeAccountSummaryQuery = Omit<AccountType, "transactions">;
+
+export type AccountHomeRecentTransactionsQuery = Omit<TransactionType, "type">;
+
+export type AccountHomeQueryData = {
+    accounts: AccountHomeAccountSummaryQuery[],
+    recentTransactions: AccountHomeRecentTransactionsQuery[]
+};
 
 export type AccountsHomeProps = RouteComponentProps<{}> & {
     

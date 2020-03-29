@@ -1,20 +1,21 @@
 import { gql } from 'apollo-boost';
 
-const queries = {
-    accounts: gql`
-        query AccountsQuery {
-            accounts {
-                id,
-                name,
-                availableBalance,
-                type,
-                accountNumber,
-                routingNumber
-            }
+export const accountsHomeQuery = gql`
+    query AccountsHomeQuery {
+        accounts {
+            id,
+            name,
+            availableBalance,
+            type,
+            accountNumber,
+            routingNumber
+        },
+        recentTransactions {
+            id,
+            date,
+            amount,
+            description,
+            availableBalance
         }
-    `
-};
-
-export {
-    queries
-};
+    }
+`;

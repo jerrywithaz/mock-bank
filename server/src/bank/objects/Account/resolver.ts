@@ -9,7 +9,7 @@ import {
 } from 'type-graphql';
 import { AccountType } from './types';
 import { TransactionType } from '../Transaction/types';
-import { getAccount, getAccounts } from './apis';
+import { getAccount, getAccounts, getRecentTransactions } from './apis';
 import { GetAccountArgs } from './args';
 
 @Resolver(() => AccountType)
@@ -26,6 +26,12 @@ class AccountResolver {
     async accounts(
     ): Promise<AccountType[]> {
         return await getAccounts();
+    }
+
+    @Query(() => [TransactionType])
+    async recentTransactions(
+    ): Promise<TransactionType[]> {
+        return await getRecentTransactions();
     }
 
     @FieldResolver(() => Float)

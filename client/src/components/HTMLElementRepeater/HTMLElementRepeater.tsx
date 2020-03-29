@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from 'react';
 import { HTMLElementRepeaterProps } from './types';
 import { useStupidShit } from '../../providers/StupidShitProvider';
 
+import * as Styled from './style';
+
 /**
  * Repeats an HTML Element `x` amount of times. The number
  * of times the element will be repeated can be set in 
@@ -13,7 +15,7 @@ const HTMLElementRepeater: FunctionComponent<HTMLElementRepeaterProps> = ({ chil
     const [repeatCounter] = useState<number>(repeat === undefined ? repeatElements : repeat);
     
     return (
-        <Component {...rest}>
+        <Styled.HTMLElementRepeater {...rest} as={Component}>
             {repeatCounter > 0 ? (
                 <HTMLElementRepeater repeat={repeatCounter - 1} component={Component} {...rest}>
                     {children}
@@ -21,7 +23,7 @@ const HTMLElementRepeater: FunctionComponent<HTMLElementRepeaterProps> = ({ chil
             ) : (
                     children
                 )}
-        </Component>
+        </Styled.HTMLElementRepeater>
     );
 
 }

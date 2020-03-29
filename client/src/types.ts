@@ -34,6 +34,7 @@ export type Query = {
   stupidShit: StupidShitType;
   account?: Maybe<AccountType>;
   accounts: Array<AccountType>;
+  recentTransactions: Array<TransactionType>;
   transaction?: Maybe<TransactionType>;
   transactions: Array<TransactionType>;
 };

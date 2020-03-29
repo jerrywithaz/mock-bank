@@ -28,6 +28,7 @@ type Query {
   stupidShit: StupidShitType!
   account(accountId: ID!): AccountType
   accounts: [AccountType!]!
+  recentTransactions: [TransactionType!]!
   transaction(accountId: ID!, transactionId: ID!): TransactionType
   transactions(accountId: ID!): [TransactionType!]!
 }

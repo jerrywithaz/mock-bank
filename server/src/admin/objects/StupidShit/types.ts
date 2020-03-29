@@ -1,15 +1,5 @@
-import { ObjectType, Field, ID, Float, InputType, Int } from 'type-graphql';
+import { ObjectType, Field, InputType, Int } from 'type-graphql';
 
-/**
- * "confirmNavigation": 0,
-        "confirmTransfer": 0,
-        "pageLoadDelay": 0,
-        "periodicallyDecreaseBalance": false,
-        "repeatElements": 0,
-        "sessionTimeout": 0,
-        "useAdvertisements": false,
-        "useTransparentOverlay": false
- */
 @ObjectType({description: "The Stupid Shit Object Type."})
 @InputType("StupidShitInput")
 export class StupidShitType {

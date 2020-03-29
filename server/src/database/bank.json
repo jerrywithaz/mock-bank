@@ -6,8 +6,15 @@
             "routingNumber": "100067590",
             "name": "Primary Checkings",
             "type": "checking",
-            "availableBalance": 100.05,
+            "availableBalance": 80.04,
             "transactions": [
+                {
+                    "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
+                    "date": "2020-03-27T23:10:12-05:00",
+                    "description": "BRAZZERS",
+                    "amount": -20.01,
+                    "availableBalance": 100.05
+                },
                 {
                     "id": "2cb04b0a-6b39-415b-9b91-ac92af2a28d8",
                     "date": "2020-03-27T23:10:12-05:00",
@@ -18,7 +25,7 @@
                 {
                     "id": "e2c70644-6cb5-4089-9478-83d9cc7f21f0",
                     "date": "2020-03-27T23:10:12-05:00",
-                    "description": "YoutubeRed*Refund",
+                    "description": "YoutubeRed*USA",
                     "amount": 16.91,
                     "availableBalance": 131.47
                 }
@@ -35,7 +42,7 @@
                 {
                     "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
                     "date": "2020-03-27T23:10:12-05:00",
-                    "description": "Direct Deposit",
+                    "description": "Direct Deposit - Microsoft",
                     "amount": 1506.89,
                     "availableBalance": 0.00
                 }
