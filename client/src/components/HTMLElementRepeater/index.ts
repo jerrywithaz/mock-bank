@@ -1,1 +1,1 @@
-export { default, Aside, Div, Main } from './HTMLElementRepeater';
+export { Aside, Div, Main, Section, Span } from './HTMLElementRepeater';

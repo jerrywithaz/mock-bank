@@ -11,14 +11,14 @@ const RecentTransactions: FunctionComponent<RecentTransactionsProps> = ({ transa
     return (
         <Styled.RecentTransactions>
             <Card title="Recent Transactions" maxHeight={400}>
-                {transactions.length && (
+                {transactions.length > 0 ? (
                     <List
                         dataSource={transactions}
                         renderItem={(transaction) => (
                             <Transaction transaction={transaction}/>
                         )}
                     />
-                )}
+                ) : null}
             </Card>
         </Styled.RecentTransactions>
     );

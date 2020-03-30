@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
+import { DingtalkOutlined } from '@ant-design/icons';
 import { Div } from 'components/HTMLElementRepeater';
 import { SidebarProps } from './types';
 import items from './items';
@@ -31,7 +32,10 @@ const Sidebar: FunctionComponent<SidebarProps> = () => {
 
     return (
         <Styled.Sidebar>
-            <Styled.Logo />
+            <Styled.Logo>
+                <DingtalkOutlined style={{fontSize: "50px", color: "#1790FF"}} />
+                <Styled.LogoText>F. Rustrate Financial</Styled.LogoText>
+            </Styled.Logo>
             <Styled.Menu theme="dark" selectedKeys={selectedKeys} mode="inline">
                 {items.map((itemGroup) => {
                     return (

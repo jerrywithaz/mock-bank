@@ -1,14 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import moment from 'moment';
 import { List, Avatar, Tooltip } from 'antd';
-import { MoneyCollectFilled, FlagFilled, UndoOutlined } from '@ant-design/icons';
-import { Div } from 'components/HTMLElementRepeater';
+import { FlagFilled, UndoOutlined, DollarCircleTwoTone } from '@ant-design/icons';
+import { green, red, blue } from '@ant-design/colors';
+import { Div, Span } from 'components/HTMLElementRepeater';
 import { TransactionProps } from './types';
+import createStringDollarAmount from 'utils/createStringDollarAmount';
 
 const Transaction: FunctionComponent<TransactionProps> = ({ transaction }) => {
+
+    const { id, type, description } = transaction;
+    const transactionAmount = createStringDollarAmount(transaction.amount);
+    const transactionAmountColor = transaction.amount > 0 ? green.primary : red.primary;
+    
     return (
         <List.Item
-            key={transaction.id}
+            key={id}
             actions={[
                 <Tooltip key={"action-flag"} title="Flag as Suspicious">
                     <FlagFilled />
@@ -18,13 +24,19 @@ const Transaction: FunctionComponent<TransactionProps> = ({ transaction }) => {
                 </Tooltip>
             ]}>
             <List.Item.Meta
+                key={`${id}-meta`}
                 avatar={
-                    <Avatar icon={<MoneyCollectFilled />} />
+                    <Avatar 
+                        style={{background: "transparent"}} 
+                        icon={(
+                            <DollarCircleTwoTone 
+                                twoToneColor={blue.primary}/>
+                        )} />
                 }
-                title={<Div uppercase>{transaction.description}</Div>}
-                description={<Div capitalize>{transaction.type}</Div>}
+                title={<Span preventChanges uppercase value={description}/>}
+                description={<Span preventChanges capitalize value={type}/>}
             />
-            <Div>{moment(transaction.date).format("LLLL")}</Div>
+            <Div preventChanges color={transactionAmountColor} value={transactionAmount}/>
         </List.Item>
     );
 }

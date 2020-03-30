@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { Card as AntCard } from 'antd';
 import { CardProps } from './types';
 
@@ -8,6 +8,9 @@ const Card = (props: CardProps) => {
     return <Styled.Card {...props}/>;
 };
 
+Card.defaultProps = {
+    primary: true
+};
 Card.Meta = AntCard.Meta;
 Card.Grid = AntCard.Grid;
 

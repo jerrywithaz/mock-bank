@@ -13,6 +13,15 @@ export const Logo = styled.div`
   height: 64px;
   flex-shrink: 0;
   background: #001429;
+  display: flex;
+  align-items: Center;
+  padding: 0px 20px;
+`;
+
+export const LogoText = styled.div`
+  color: #fff;
+  font-size: 18px;
+  margin-left: 10px;
 `;
 
 export const Menu = styled(AntMenu)`

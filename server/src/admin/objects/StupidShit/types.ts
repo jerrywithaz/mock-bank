@@ -31,6 +31,12 @@ export class StupidShitType {
     )})
     periodicallyDecreaseBalance: boolean;
 
+    @Field(() => Boolean, {description: (
+        "If true will enable the ability to prevent changing " +
+        "the value of html elements."
+    )})
+    preventChangingHTMLValues: boolean;
+
     @Field(() => Int, { description: (
         "This setting indicates how many times each html element will " +
         "be repeated. This makes inspecting elements extremely difficult " +

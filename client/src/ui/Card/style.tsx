@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card as AntCard } from 'antd';
+import { blue } from '@ant-design/colors';
 import styled from 'styled-components';
 import { CardProps } from './types';
 
-export const Card = styled(({maxHeight, fillContainer, ...rest}: CardProps) => (
+export const Card = styled(({maxHeight, fillContainer, primary, ...rest}: CardProps) => (
     <AntCard {...rest}/>
 ))`
     ${props => props.fillContainer && `
@@ -20,6 +21,11 @@ export const Card = styled(({maxHeight, fillContainer, ...rest}: CardProps) => (
             overflow: auto;
             margin: 24px;
             padding: 0px;
+        }
+    `}
+    ${props => props.primary && `
+        .ant-card-head-title {
+            color: ${blue.primary};
         }
     `}
 `;

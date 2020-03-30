@@ -7,6 +7,7 @@ export const stupidShitProviderQuery = gql`
             confirmTransfer,
             pageLoadDelay,
             periodicallyDecreaseBalance,
+            preventChangingHTMLValues,
             repeatElements,
             sessionTimeout,
             useAdvertisements,

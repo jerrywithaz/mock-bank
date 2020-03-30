@@ -60,6 +60,7 @@ export type StupidShitInput = {
   confirmTransfer: Scalars['Int'];
   pageLoadDelay: Scalars['Int'];
   periodicallyDecreaseBalance: Scalars['Boolean'];
+  preventChangingHTMLValues: Scalars['Boolean'];
   repeatElements: Scalars['Int'];
   sessionTimeout: Scalars['Int'];
   useAdvertisements: Scalars['Boolean'];
@@ -72,6 +73,7 @@ export type StupidShitType = {
   confirmTransfer: Scalars['Int'];
   pageLoadDelay: Scalars['Int'];
   periodicallyDecreaseBalance: Scalars['Boolean'];
+  preventChangingHTMLValues: Scalars['Boolean'];
   repeatElements: Scalars['Int'];
   sessionTimeout: Scalars['Int'];
   useAdvertisements: Scalars['Boolean'];

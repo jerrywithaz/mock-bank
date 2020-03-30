@@ -14,14 +14,14 @@ const AccountsHome: FunctionComponent<AccountsHomeProps> = () => {
 
     const accounts = data ? data.accounts : [];
     const recentTransactions = data ? data.recentTransactions : [];
-    const upcomingPayments = [];
+    const upcomingPayments: any[] = [];
     
     return (
         <Styled.AccountsHome>
             <AccountsSummary accounts={accounts}/>
             <Styled.TransactionInfo>
                 <RecentTransactions transactions={recentTransactions}/>
-                <UpcomingPayments/>
+                <UpcomingPayments upcomingPayments={upcomingPayments}/>
             </Styled.TransactionInfo>
         </Styled.AccountsHome>
     );

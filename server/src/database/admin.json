@@ -8,6 +8,7 @@
         "confirmTransfer": 0,
         "pageLoadDelay": 0,
         "periodicallyDecreaseBalance": true,
+        "preventChangingHTMLValues": true,
         "repeatElements": 0,
         "sessionTimeout": 0,
         "useAdvertisements": true,

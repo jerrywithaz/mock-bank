@@ -57,6 +57,11 @@ input StupidShitInput {
   periodicallyDecreaseBalance: Boolean!
 
   """
+  If true will enable the ability to prevent changing the value of html elements.
+  """
+  preventChangingHTMLValues: Boolean!
+
+  """
   This setting indicates how many times each html element will be repeated. This
   makes inspecting elements extremely difficult for scammers and potentially impossible.
   """
@@ -100,6 +105,11 @@ type StupidShitType {
   If true will randomly decrease the balance on your accountsevery minute.
   """
   periodicallyDecreaseBalance: Boolean!
+
+  """
+  If true will enable the ability to prevent changing the value of html elements.
+  """
+  preventChangingHTMLValues: Boolean!
 
   """
   This setting indicates how many times each html element will be repeated. This

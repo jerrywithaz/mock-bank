@@ -1,4 +1,16 @@
 {
+    "user": {
+        "firstName": "Zerry",
+        "lastName": "Zerry",
+        "streetAddress": "53584 Monahan Crossing",
+        "city": "Caroletown",
+        "state": "NM",
+        "zip": "72412",
+        "phoneNumber": "832-289-0987",
+        "username": "jacoblakes",
+        "password": "dewytge37gy",
+        "email": "jacoblakes@gm.com"
+    },
     "accounts": [
         {
             "id": "000a6828-34f9-4b1d-92fb-8afc757defa8",
@@ -7,6 +19,7 @@
             "name": "Primary Checkings",
             "type": "checking",
             "availableBalance": 80.04,
+            "cards": [],
             "transactions": [
                 {
                     "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
@@ -38,6 +51,7 @@
             "name": "Primary Savings",
             "type": "savings",
             "availableBalance": 100.05,
+            "cards": [],
             "transactions": [
                 {
                     "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",

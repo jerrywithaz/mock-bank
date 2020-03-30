@@ -1,5 +1,6 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useRef } from 'react';
 import { useStupidShit } from 'providers/StupidShitProvider';
+import usePreventValueChange from 'hooks/usePreventValueChange';
 import { HTMLElementRepeaterProps } from './types';
 
 import * as Styled from './style';
@@ -9,20 +10,30 @@ import * as Styled from './style';
  * of times the element will be repeated can be set in 
  * the admin portal.
  */
-const HTMLElementRepeater: FunctionComponent<HTMLElementRepeaterProps> = ({ children, repeat, component: Component = "div", ...rest }) => {
+function HTMLElementRepeater<Element extends HTMLElement = HTMLDivElement> ({ 
+    children, 
+    repeat, 
+    component: Component = "div", 
+    onMutation = () => {},
+    value,
+    preventChanges = false,
+    ...rest 
+}: HTMLElementRepeaterProps<Element>) {
 
-    const { repeatElements } = useStupidShit();
-    const [repeatCounter] = useState<number>(repeat === undefined ? repeatElements : repeat);
+    const { repeatElements, preventChangingHTMLValues } = useStupidShit();
+    const ref = useRef<Element>(null);
+    const repeatCounter = repeat === undefined ? repeatElements : repeat;
+    const observe = repeatCounter === 0 && value !== undefined && preventChangingHTMLValues && preventChanges;
     
+    usePreventValueChange(observe, ref, value);
+
     return (
-        <Styled.HTMLElementRepeater {...rest} as={Component}>
+        <Styled.HTMLElementRepeater {...rest} component={Component} ref={ref}>
             {repeatCounter > 0 ? (
                 <HTMLElementRepeater repeat={repeatCounter - 1} component={Component} {...rest}>
-                    {children}
+                    {value ? value : children}
                 </HTMLElementRepeater>
-            ) : (
-                    children
-                )}
+            ) : (value ? value : children)}
         </Styled.HTMLElementRepeater>
     );
 
@@ -31,22 +42,34 @@ const HTMLElementRepeater: FunctionComponent<HTMLElementRepeaterProps> = ({ chil
 /**
  * HTML Aside Element Repeater.
  */
-export const Aside: FunctionComponent<Omit<HTMLElementRepeaterProps, "component">> = (props) => {
+export const Aside: FunctionComponent<Omit<HTMLElementRepeaterProps<HTMLElement>, "component">> = (props) => {
     return <HTMLElementRepeater {...props} component="aside" />
 }
 
 /**
  * HTML Div Element Repeater.
  */
-export const Div: FunctionComponent<Omit<HTMLElementRepeaterProps, "component">> = (props) => {
+export const Div: FunctionComponent<Omit<HTMLElementRepeaterProps<HTMLDivElement>, "component">> = (props) => {
     return <HTMLElementRepeater {...props} component="div" />
 }
 
 /**
  * HTML Main Element Repeater.
  */
-export const Main: FunctionComponent<Omit<HTMLElementRepeaterProps, "component">> = (props) => {
+export const Main: FunctionComponent<Omit<HTMLElementRepeaterProps<HTMLElement>, "component">> = (props) => {
     return <HTMLElementRepeater {...props} component="main" />
 }
 
-export default HTMLElementRepeater;
+/**
+ * HTML Section Element Repeater.
+ */
+export const Section: FunctionComponent<Omit<HTMLElementRepeaterProps<HTMLElement>, "component">> = (props) => {
+    return <HTMLElementRepeater {...props} component="section" />
+}
+
+/**
+ * HTML Section Element Repeater.
+ */
+export const Span: FunctionComponent<Omit<HTMLElementRepeaterProps<HTMLSpanElement>, "component">> = (props) => {
+    return <HTMLElementRepeater {...props} component="span" />
+}
