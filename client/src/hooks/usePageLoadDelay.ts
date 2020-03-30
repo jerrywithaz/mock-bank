@@ -4,7 +4,7 @@ import { gql } from 'apollo-boost';
 import { StupidShitType } from "__generated__/graphql/types";
 
 const query = gql`
-    query GetComponentDelay {
+    query GetPageLoadDelay {
         stupidShit {
             pageLoadDelay
         }
