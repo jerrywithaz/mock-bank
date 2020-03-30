@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { ApolloProvider as Provider } from '@apollo/react-hooks';
-import { GraphQLClient } from '../../graphql';
+import client from './client';
 import { ApolloProviderProps } from './types';
 
 const ApolloProvider: FunctionComponent<ApolloProviderProps> = ({ children }) => {
     return (
-        <Provider client={GraphQLClient}>
+        <Provider client={client}>
             {children}
         </Provider>
     );

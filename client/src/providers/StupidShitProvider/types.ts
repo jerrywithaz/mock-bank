@@ -1,4 +1,4 @@
-import { StupidShitType } from "../../types"
+import { StupidShitType } from "__generated__/graphql/types"
 
 export type StupidShitContextValue = StupidShitType & {
 

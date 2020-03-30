@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { AccountType, TransactionType } from '../../types';
+import { AccountType, TransactionType } from '__generated__/graphql/types';
 
 export type AccountHomeAccountSummaryQuery = Omit<AccountType, "transactions">;
 

@@ -3,7 +3,7 @@ import { useApolloClient } from "@apollo/react-hooks";
 import { Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { gql } from 'apollo-boost';
-import { StupidShitType } from "types";
+import { StupidShitType } from "__generated__/graphql/types";
 
 const query = gql`
     query GetComponentDelay {

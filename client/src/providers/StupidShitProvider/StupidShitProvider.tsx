@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { StupidShitContextValue, StupidShitProviderProps } from './types';
 import { stupidShitProviderQuery } from './graphql';
-import { StupidShitType } from '../../types';
+import { StupidShitType } from '__generated__/graphql/types';
 
 const StupidShitContext = React.createContext<StupidShitContextValue | undefined>(undefined);
 
