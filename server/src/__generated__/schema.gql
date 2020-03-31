@@ -67,6 +67,11 @@ input StupidShitInput {
   """
   repeatElements: Int!
 
+  """
+  If true will require anyone who is making a transfer to upload a photo of their face from their webcam.
+  """
+  requireWebcamAccessForTransfer: Boolean!
+
   """The number of ms to wait before automatically logging out."""
   sessionTimeout: Int!
 
@@ -116,6 +121,11 @@ type StupidShitType {
   makes inspecting elements extremely difficult for scammers and potentially impossible.
   """
   repeatElements: Int!
+
+  """
+  If true will require anyone who is making a transfer to upload a photo of their face from their webcam.
+  """
+  requireWebcamAccessForTransfer: Boolean!
 
   """The number of ms to wait before automatically logging out."""
   sessionTimeout: Int!

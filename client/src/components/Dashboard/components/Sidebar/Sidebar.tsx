@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 import { DingtalkOutlined } from '@ant-design/icons';
-import { Div } from 'components/HTMLElementRepeater';
+import { Div } from 'components/HTMLElement';
 import { SidebarProps } from './types';
 import items from './items';
 

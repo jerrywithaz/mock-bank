@@ -5,7 +5,7 @@ import { CardProps } from './types';
 import * as Styled from './style';
 
 const Card = (props: CardProps) => {
-    return <Styled.Card {...props}/>;
+    return <Styled.Card bordered={false} {...props}/>;
 };
 
 Card.defaultProps = {

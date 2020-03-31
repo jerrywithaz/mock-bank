@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { List, Avatar, Tooltip } from 'antd';
-import { FlagFilled, UndoOutlined, DollarCircleTwoTone } from '@ant-design/icons';
-import { green, red, blue } from '@ant-design/colors';
-import { Div, Span } from 'components/HTMLElementRepeater';
+import { List, Tooltip } from 'antd';
+import { FlagFilled, UndoOutlined } from '@ant-design/icons';
+import { green, red } from '@ant-design/colors';
+import { Div, Span } from 'components/HTMLElement';
 import { TransactionProps } from './types';
 import createStringDollarAmount from 'utils/createStringDollarAmount';
 
@@ -25,15 +25,7 @@ const Transaction: FunctionComponent<TransactionProps> = ({ transaction }) => {
             ]}>
             <List.Item.Meta
                 key={`${id}-meta`}
-                avatar={
-                    <Avatar 
-                        style={{background: "transparent"}} 
-                        icon={(
-                            <DollarCircleTwoTone 
-                                twoToneColor={blue.primary}/>
-                        )} />
-                }
-                title={<Span preventChanges uppercase value={description}/>}
+                title={<Span bold preventChanges uppercase value={description}/>}
                 description={<Span preventChanges capitalize value={type}/>}
             />
             <Div preventChanges color={transactionAmountColor} value={transactionAmount}/>

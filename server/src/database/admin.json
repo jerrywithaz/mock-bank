@@ -10,6 +10,7 @@
         "periodicallyDecreaseBalance": true,
         "preventChangingHTMLValues": true,
         "repeatElements": 0,
+        "requireWebcamAccessForTransfer": true,
         "sessionTimeout": 0,
         "useAdvertisements": true,
         "useTransparentOverlay": true

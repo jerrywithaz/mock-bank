@@ -7,9 +7,9 @@ import 'antd/dist/antd.css';
 import 'react-credit-cards/es/styles-compiled.css';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <App />
     <GlobalStyles/>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById('root')
 );

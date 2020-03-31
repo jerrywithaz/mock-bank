@@ -1,4 +1,3 @@
-
 declare module "creditcard-generator" {
     
     type CreditCardGenerator = {
@@ -26,5 +25,13 @@ declare module "react-credit-cards" {
     }
 
     export default Cards;
+
+}
+
+declare module "tracking" {
+    
+    const TrackingObject: any;
+
+    export default TrackingObject;
 
 }

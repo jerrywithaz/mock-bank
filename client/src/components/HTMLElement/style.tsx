@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledHTMLElementRepeaterProps } from './types';
+import { StyledHTMLElementProps } from './types';
 
-const HTMLElementRepeaterComponent = React.forwardRef<unknown, Omit<StyledHTMLElementRepeaterProps<unknown>, "repeat">>(({
+const HTMLElementComponent = React.forwardRef<unknown, Omit<StyledHTMLElementProps<unknown>, "repeat">>(({
     component: Component, 
     capitalize,
     truncate,
@@ -13,7 +13,7 @@ const HTMLElementRepeaterComponent = React.forwardRef<unknown, Omit<StyledHTMLEl
     return <Component {...rest} ref={ref} />;
 });
 
-export const HTMLElementRepeater = styled(HTMLElementRepeaterComponent)`
+export const HTMLElement = styled(HTMLElementComponent)`
     ${props => props.capitalize && `text-transform: capitalize;`}
     ${props => props.truncate && `
         white-space: nowrap;
@@ -22,4 +22,5 @@ export const HTMLElementRepeater = styled(HTMLElementRepeaterComponent)`
     `}
     ${props => props.uppercase && `text-transform: uppercase;`}
     ${props => props.color && `color: ${props.color};`}
+    ${props => props.bold && `font-weight: bold;`}
 `;

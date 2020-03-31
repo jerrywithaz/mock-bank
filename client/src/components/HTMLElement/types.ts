@@ -1,4 +1,5 @@
-export interface HTMLElementRepeaterProps<Element = HTMLDivElement> extends React.DetailedHTMLProps<React.HTMLAttributes<Element>, Element>{
+export interface HTMLElementProps<Element = HTMLDivElement> extends React.DetailedHTMLProps<React.HTMLAttributes<Element>, Element>{
+    bold?: boolean;
     capitalize?: boolean;
     component?: React.ElementType;
     children?: React.ReactNode;
@@ -11,6 +12,6 @@ export interface HTMLElementRepeaterProps<Element = HTMLDivElement> extends Reac
     preventChanges?: boolean
 };
 
-export type StyledHTMLElementRepeaterProps<Element = HTMLDivElement> = HTMLElementRepeaterProps<Element> & {
+export type StyledHTMLElementProps<Element = HTMLDivElement> = HTMLElementProps<Element> & {
     component: React.ElementType;
 };

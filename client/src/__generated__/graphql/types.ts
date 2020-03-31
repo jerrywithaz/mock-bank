@@ -62,6 +62,7 @@ export type StupidShitInput = {
   periodicallyDecreaseBalance: Scalars['Boolean'];
   preventChangingHTMLValues: Scalars['Boolean'];
   repeatElements: Scalars['Int'];
+  requireWebcamAccessForTransfer: Scalars['Boolean'];
   sessionTimeout: Scalars['Int'];
   useAdvertisements: Scalars['Boolean'];
   useTransparentOverlay: Scalars['Boolean'];
@@ -75,6 +76,7 @@ export type StupidShitType = {
   periodicallyDecreaseBalance: Scalars['Boolean'];
   preventChangingHTMLValues: Scalars['Boolean'];
   repeatElements: Scalars['Int'];
+  requireWebcamAccessForTransfer: Scalars['Boolean'];
   sessionTimeout: Scalars['Int'];
   useAdvertisements: Scalars['Boolean'];
   useTransparentOverlay: Scalars['Boolean'];

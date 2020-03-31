@@ -1,4 +1,11 @@
-import { ROUTE_ACCOUNTS_HOME, ROUTE_CONTACT_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CARDS_HOME } from 'routes';
+import { 
+    ROUTE_ACCOUNTS_HOME, 
+    ROUTE_CONTACT_HOME, 
+    ROUTE_FAQ_HOME, 
+    ROUTE_FEEDBACK_HOME, 
+    ROUTE_CARDS_HOME, 
+    ROUTE_TRANSFER_MONEY_HOME 
+} from 'routes';
 import { SidebarItem } from "./types";
 
 const items: SidebarItem[] = [
@@ -25,7 +32,7 @@ const items: SidebarItem[] = [
         items: [{
             key: "transfer_money",
             title: "Transfer Money",
-            url: "/transfer_money"
+            url: ROUTE_TRANSFER_MONEY_HOME
         }, {
             key: "send_money",
             title: "Send Money",

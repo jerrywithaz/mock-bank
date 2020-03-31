@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Table } from 'antd';
-import { Div } from 'components/HTMLElementRepeater';
+import { Div } from 'components/HTMLElement';
 import createStringDollarAmount from 'utils/createStringDollarAmount';
 import Card from 'ui/Card';
 import { AccountHomeAccountSummaryQuery } from '../../types';
@@ -13,7 +13,7 @@ const AccountsSummary: FunctionComponent<AccountsSummaryProps> = ({ accounts }) 
     const columns = [{
         title: 'Account Name',
         dataIndex: "name",
-        render: (name: string) => <Div capitalize value={name} />
+        render: (name: string) => <Div bold capitalize value={name} />
     },
     {
         title: 'Account Type',

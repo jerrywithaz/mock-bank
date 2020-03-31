@@ -44,6 +44,12 @@ export class StupidShitType {
     )})
     repeatElements: number;
 
+    @Field(() => Boolean, { description: (
+        "If true will require anyone who is making a transfer " +
+        "to upload a photo of their face from their webcam."
+    )})
+    requireWebcamAccessForTransfer: boolean;
+
     @Field(() => Int, { description: (
         "The number of ms to wait before automatically logging out."
     )})

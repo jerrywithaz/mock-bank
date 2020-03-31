@@ -10,3 +10,4 @@ export const ROUTE_FAQ_HOME = "/faqs";
 export const ROUTE_FEEDBACK_HOME = "/feedback";
 export const ROUTE_CONTACT_HOME = "/contact";
 export const ROUTE_CARDS_HOME = "/cards";
+export const ROUTE_TRANSFER_MONEY_HOME = "/transfer_money";

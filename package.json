@@ -6,5 +6,8 @@
   "repository": "https://github.com/jerrywithaz/mock-bank.git",
   "author": "Zerry Hogan",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "tracking": "^1.1.3"
+  }
 }

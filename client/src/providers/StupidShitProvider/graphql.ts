@@ -9,6 +9,7 @@ export const stupidShitProviderQuery = gql`
             periodicallyDecreaseBalance,
             preventChangingHTMLValues,
             repeatElements,
+            requireWebcamAccessForTransfer,
             sessionTimeout,
             useAdvertisements,
             useTransparentOverlay

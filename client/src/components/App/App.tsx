@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserHistory } from 'history';
 import { Router as BrowserRouter } from 'react-router-dom';
-import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CONTACT_HOME, ROUTE_CARDS_HOME } from 'routes';
+import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CONTACT_HOME, ROUTE_CARDS_HOME, ROUTE_TRANSFER_MONEY_HOME } from 'routes';
 import ApolloProvider from 'providers/ApolloProvider';
 import ThemeProvider from 'providers/ThemeProvider';
 import RouteProvider from 'providers/RouteProvider';
@@ -15,6 +15,7 @@ import Switch from 'components/Switch';
 import AnnoyingRoute from 'components/AnnoyingRoute';
 import ContactHome from 'views/ContactHome';
 import CardsSummary from 'views/CardsSummary';
+import TransferMoneyHome from 'views/TransferMoneyHome';
 
 function App() {
   return (
@@ -48,6 +49,9 @@ function App() {
                   <AnnoyingRoute
                     path={ROUTE_CARDS_HOME}
                     component={CardsSummary} />
+                  <AnnoyingRoute
+                    path={ROUTE_TRANSFER_MONEY_HOME}
+                    component={TransferMoneyHome} />
                 </Switch>
               </Dashboard>
             </StupidShitProvider>

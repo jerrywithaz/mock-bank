@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { MailHomeProps } from './types';
 import { ROUTE_MAIL_ITEM, ROUTE_MAIL_HOME } from 'routes';
 import Switch from 'components/Switch';
-import { Div } from 'components/HTMLElementRepeater';
+import { Div } from 'components/HTMLElement';
 import AnnoyingRoute from 'components/AnnoyingRoute';
 
 const MailHome: FunctionComponent<MailHomeProps> = (props) => {

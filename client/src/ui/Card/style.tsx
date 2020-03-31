@@ -7,6 +7,7 @@ import { CardProps } from './types';
 export const Card = styled(({maxHeight, fillContainer, primary, ...rest}: CardProps) => (
     <AntCard {...rest}/>
 ))`
+    box-shadow: 0 0px 10px rgba(0,0,0,.1);
     ${props => props.fillContainer && `
         width: 100%;
         height: 100%;
@@ -24,8 +25,11 @@ export const Card = styled(({maxHeight, fillContainer, primary, ...rest}: CardPr
         }
     `}
     ${props => props.primary && `
+        .ant-card-head {
+            background: ${blue.primary};
+        }
         .ant-card-head-title {
-            color: ${blue.primary};
+            color: #ffffff;
         }
     `}
 `;

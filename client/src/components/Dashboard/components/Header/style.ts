@@ -4,11 +4,13 @@ export const Header = styled.div`
     position: relative;
     flex-shrink: 0;
     width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
     .ant-layout-header {
         display: flex;
         justify-content: space-between;
         width: 100%;
         padding: 0px 20px;
+        background: #fff;
     }
 `;
 

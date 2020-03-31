@@ -3,6 +3,7 @@ import { Avatar, Layout, Input, Badge } from 'antd';
 import { MessageFilled, BellFilled } from '@ant-design/icons';
 
 import * as Styled from './style';
+import { blue } from '@ant-design/colors';
 
 const Header = () => {
 
@@ -17,12 +18,12 @@ const Header = () => {
                 <Styled.Icons>
                     <Styled.Icon>
                         <Badge count={5} dot>
-                            <Avatar style={{ background: "transparent" }} icon={<BellFilled />} />
+                            <Avatar style={{ background: "transparent" }} icon={<BellFilled style={{ color: blue.primary }}/>} />
                         </Badge>
                     </Styled.Icon>
                     <Styled.Icon>
                         <Badge count={5} dot>
-                            <Avatar style={{ background: "transparent" }} icon={<MessageFilled />} />
+                            <Avatar style={{ background: "transparent" }} icon={<MessageFilled style={{ color: blue.primary }}/>} />
                         </Badge>
                     </Styled.Icon>
                     <Avatar size="large" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />

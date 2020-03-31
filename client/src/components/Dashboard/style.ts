@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Div } from 'components/HTMLElementRepeater';
+import { Div } from 'components/HTMLElement';
 
 export const Dashboard = styled(Div)`
     display: flex;
