@@ -1,27 +1,35 @@
 import React from 'react';
-import { createBrowserHistory } from 'history';
-import { Router as BrowserRouter } from 'react-router-dom';
-import { ROUTE_ACCOUNTS_HOME, ROUTE_MAIL_HOME, ROUTE_HOME, ROUTE_FAQ_HOME, ROUTE_FEEDBACK_HOME, ROUTE_CONTACT_HOME, ROUTE_CARDS_HOME, ROUTE_TRANSFER_MONEY_HOME } from 'routes';
+import { 
+  ROUTE_ACCOUNTS_HOME, 
+  ROUTE_MAIL_HOME, 
+  ROUTE_HOME, 
+  ROUTE_FAQ_HOME, 
+  ROUTE_FEEDBACK_HOME, 
+  ROUTE_CONTACT_HOME, 
+  ROUTE_CARDS_HOME, 
+  ROUTE_TRANSFER_MONEY_HOME 
+} from 'routes';
 import ApolloProvider from 'providers/ApolloProvider';
 import ThemeProvider from 'providers/ThemeProvider';
 import RouteProvider from 'providers/RouteProvider';
 import StupidShitProvider from 'providers/StupidShitProvider';
+import ReactRouterProvider from 'providers/ReactRouterProvider';
 import AccountsHome from 'views/AccountsHome';
 import MailHome from 'views/MailHome';
 import FaqHome from 'views/FaqHome';
 import FeedbackHome from 'views/FeedbackHome';
-import Dashboard from 'components/Dashboard';
-import Switch from 'components/Switch';
-import AnnoyingRoute from 'components/AnnoyingRoute';
 import ContactHome from 'views/ContactHome';
 import CardsSummary from 'views/CardsSummary';
 import TransferMoneyHome from 'views/TransferMoneyHome';
+import Dashboard from 'components/Dashboard';
+import Switch from 'components/Switch';
+import AnnoyingRoute from 'components/AnnoyingRoute';
 
 function App() {
   return (
     <ApolloProvider>
       <ThemeProvider>
-        <BrowserRouter history={createBrowserHistory()}>
+        <ReactRouterProvider>
           <RouteProvider>
             <StupidShitProvider>
               <Dashboard>
@@ -56,7 +64,7 @@ function App() {
               </Dashboard>
             </StupidShitProvider>
           </RouteProvider>
-        </BrowserRouter>
+        </ReactRouterProvider>
       </ThemeProvider>
     </ApolloProvider>
   );

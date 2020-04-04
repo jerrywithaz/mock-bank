@@ -1,4 +1,4 @@
-export interface HTMLElementProps<Element = HTMLDivElement> extends React.DetailedHTMLProps<React.HTMLAttributes<Element>, Element>{
+export interface HTMLElementBaseProps<Element = HTMLDivElement> extends React.DetailedHTMLProps<React.HTMLAttributes<Element>, Element>{
     bold?: boolean;
     capitalize?: boolean;
     component?: React.ElementType;
@@ -12,6 +12,10 @@ export interface HTMLElementProps<Element = HTMLDivElement> extends React.Detail
     preventChanges?: boolean
 };
 
-export type StyledHTMLElementProps<Element = HTMLDivElement> = HTMLElementProps<Element> & {
+export type HTMLElementProps<Element = HTMLElement> = {
+
+} & Omit<HTMLElementBaseProps<Element>, "component">;
+
+export type StyledHTMLElementProps<Element = HTMLDivElement> = HTMLElementBaseProps<Element> & {
     component: React.ElementType;
 };

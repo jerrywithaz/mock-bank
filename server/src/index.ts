@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import axios from 'axios';
 import express from 'express';
 import jsonServer from 'json-server';
 import { ApolloServer } from 'apollo-server-express';
@@ -19,12 +18,10 @@ async function bootstrap(): Promise<void> {
     const adminJsonServerRouter = jsonServer.router('src/database/admin.json');
     const bankJsonServerRouter = jsonServer.router('src/database/bank.json');
     const jsonServerMiddlewares = jsonServer.defaults();
-
     const apolloServer = new ApolloServer({
         schema,
         playground
     });
-
 
     app.use(jsonServerMiddlewares);
     app.use("/json/bank", bankJsonServerRouter);

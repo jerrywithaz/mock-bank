@@ -1,1 +1,1 @@
-export { Aside, Div, Main, Section, Span } from './HTMLElement';
+export { Aside, Div, Main, Section, Span, A } from './HTMLElement';

@@ -1,16 +1,17 @@
 import React, { FunctionComponent, useRef } from 'react';
 import { useStupidShit } from 'providers/StupidShitProvider';
 import usePreventValueChange from 'hooks/usePreventValueChange';
-import { HTMLElementProps } from './types';
+import { HTMLElementBaseProps, HTMLElementProps } from './types';
 
 import * as Styled from './style';
 
 /**
- * Repeats an HTML Element `x` amount of times. The number
- * of times the element will be repeated can be set in 
- * the admin portal.
+ * A wrapper around the standard HTML Element
+ * that uses hooks to hook into settings and provides
+ * easy ways to do simple styling though boolean props 
+ * such as `bold`.
  */
-function HTMLElement<Element extends HTMLElement = HTMLDivElement> ({ 
+function HTMLElementBase<Element extends HTMLElement = HTMLDivElement> ({ 
     children, 
     repeat, 
     component: Component = "div", 
@@ -18,7 +19,7 @@ function HTMLElement<Element extends HTMLElement = HTMLDivElement> ({
     value,
     preventChanges = false,
     ...rest 
-}: HTMLElementProps<Element>) {
+}: HTMLElementBaseProps<Element>) {
 
     const { repeatElements, preventChangingHTMLValues } = useStupidShit();
     const ref = useRef<Element>(null);
@@ -30,9 +31,9 @@ function HTMLElement<Element extends HTMLElement = HTMLDivElement> ({
     return (
         <Styled.HTMLElement {...rest} component={Component} ref={ref}>
             {repeatCounter > 0 ? (
-                <HTMLElement repeat={repeatCounter - 1} component={Component} {...rest}>
+                <HTMLElementBase repeat={repeatCounter - 1} component={Component} {...rest}>
                     {value ? value : children}
-                </HTMLElement>
+                </HTMLElementBase>
             ) : (value ? value : children)}
         </Styled.HTMLElement>
     );
@@ -40,36 +41,43 @@ function HTMLElement<Element extends HTMLElement = HTMLDivElement> ({
 }
 
 /**
- * HTML Aside Element Repeater.
+ * Custom HTML Aside Element.
  */
-export const Aside: FunctionComponent<Omit<HTMLElementProps<HTMLElement>, "component">> = (props) => {
-    return <HTMLElement {...props} component="aside" />
+export const Aside: FunctionComponent<HTMLElementProps<HTMLElement>> = (props) => {
+    return <HTMLElementBase {...props} component="aside" />
 }
 
 /**
- * HTML Div Element Repeater.
+ * Custom HTML Div Element.
  */
-export const Div: FunctionComponent<Omit<HTMLElementProps<HTMLDivElement>, "component">> = (props) => {
-    return <HTMLElement {...props} component="div" />
+export const Div: FunctionComponent<HTMLElementProps<HTMLDivElement>> = (props) => {
+    return <HTMLElementBase {...props} component="div" />
 }
 
 /**
- * HTML Main Element Repeater.
+ * Custom HTML Main Element.
  */
-export const Main: FunctionComponent<Omit<HTMLElementProps<HTMLElement>, "component">> = (props) => {
-    return <HTMLElement {...props} component="main" />
+export const Main: FunctionComponent<HTMLElementProps<HTMLElement>> = (props) => {
+    return <HTMLElementBase {...props} component="main" />
 }
 
 /**
- * HTML Section Element Repeater.
+ * Custom HTML Section Element.
  */
-export const Section: FunctionComponent<Omit<HTMLElementProps<HTMLElement>, "component">> = (props) => {
-    return <HTMLElement {...props} component="section" />
+export const Section: FunctionComponent<HTMLElementProps<HTMLElement>> = (props) => {
+    return <HTMLElementBase {...props} component="section" />
 }
 
 /**
- * HTML Section Element Repeater.
+ * Custom HTML Section Element.
  */
-export const Span: FunctionComponent<Omit<HTMLElementProps<HTMLSpanElement>, "component">> = (props) => {
-    return <HTMLElement {...props} component="span" />
+export const Span: FunctionComponent<HTMLElementProps<HTMLSpanElement>> = (props) => {
+    return <HTMLElementBase {...props} component="span" />
+}
+
+/**
+ * Custom HTML Anchor Element.
+ */
+export const A: FunctionComponent<HTMLElementProps<HTMLAnchorElement>> = (props) => {
+    return <HTMLElementBase {...props} component="a" />
 }

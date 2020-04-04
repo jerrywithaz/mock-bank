@@ -8,6 +8,7 @@ const HTMLElementComponent = React.forwardRef<unknown, Omit<StyledHTMLElementPro
     truncate,
     uppercase,
     color,
+    bold,
     ...rest
 }, ref) => {
     return <Component {...rest} ref={ref} />;
