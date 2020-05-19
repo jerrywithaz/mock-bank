@@ -8,7 +8,9 @@ This project is an intentionally frustrating to use bank for scam baiting refund
 2) Repeatable HTML elements that make it impossible for refund scammers to inspect the page and change html.
 3) The ability to set a transparant overlay in order to make it difficult for refund scammers to change html.
 4) Annoyingly placed advertisement.
-5) And so much more!
+5) The ability to prevent scammers from changing HTML.
+6) Adjustable session timeouts to force re-login whenever you want.
+7) And so much more!
 
 ## How to Use
 
