@@ -1,5 +1,7 @@
 # A Mock Bank for Scam-Baiting Refund Scammers
 
+![Screenshot](https://github.com/jerrywithaz/mock-bank/blob/master/screenshot.png?raw=true)
+
 This project is an intentionally frustrating to use bank for scam baiting refund scammers. It looks and operates like a real bank however all of the account information and data is mocked and no transactions are actually happening. It supports several features such as:
 
 1) Adjustable page load times to make the website appear to be extremely slow.
