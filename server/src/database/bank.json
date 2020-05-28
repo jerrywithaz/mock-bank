@@ -17,50 +17,49 @@
             "accountNumber": "1794965379375739",
             "routingNumber": "100067590",
             "name": "Primary Checkings",
-            "type": "checking",
-            "availableBalance": 80.04,
-            "cards": [],
-            "transactions": [
-                {
-                    "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
-                    "date": "2020-03-27T23:10:12-05:00",
-                    "description": "HULU",
-                    "amount": -20.01,
-                    "availableBalance": 100.05
-                },
-                {
-                    "id": "2cb04b0a-6b39-415b-9b91-ac92af2a28d8",
-                    "date": "2020-03-27T22:15:12-05:00",
-                    "description": "Spotify*USA",
-                    "amount": -14.51,
-                    "availableBalance": 114.56
-                },
-                {
-                    "id": "e2c70644-6cb5-4089-9478-83d9cc7f21f0",
-                    "date": "2020-03-27T20:10:12-05:00",
-                    "description": "YoutubeRed*USA",
-                    "amount": 16.91,
-                    "availableBalance": 131.47
-                }
-            ]
+            "type": "checking"
         },
         {
             "id": "5129c730-07ef-4579-9ec3-8a9150faced9",
             "accountNumber": "4956583075489753",
             "routingNumber": "100067590",
             "name": "Primary Savings",
-            "type": "savings",
-            "availableBalance": 100.05,
-            "cards": [],
-            "transactions": [
-                {
-                    "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
-                    "date": "2020-03-27T23:10:12-05:00",
-                    "description": "Direct Deposit - Microsoft",
-                    "amount": 1506.89,
-                    "availableBalance": 0.00
-                }
-            ]
+            "type": "savings"
+        }
+    ],
+    "cards": [],
+    "transactions": [
+        {
+            "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
+            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+            "date": "2020-03-27T23:10:12-05:00",
+            "description": "HULU",
+            "amount": -20.01,
+            "availableBalance": 100.05
+        },
+        {
+            "id": "2cb04b0a-6b39-415b-9b91-ac92af2a28d8",
+            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+            "date": "2020-03-27T22:15:12-05:00",
+            "description": "Spotify*USA",
+            "amount": -14.51,
+            "availableBalance": 114.56
+        },
+        {
+            "id": "e2c70644-6cb5-4089-9478-83d9cc7f21f0",
+            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+            "date": "2020-03-27T20:10:12-05:00",
+            "description": "YoutubeRed*USA",
+            "amount": 16.91,
+            "availableBalance": 131.47
+        },
+        {
+            "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
+            "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
+            "date": "2020-03-27T23:10:12-05:00",
+            "description": "Direct Deposit - Microsoft",
+            "amount": 1506.89,
+            "availableBalance": 0.00
         }
     ]
 }

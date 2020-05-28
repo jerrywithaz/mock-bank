@@ -24,13 +24,17 @@ type AccountType {
   type: String
 }
 
+type Mutation {
+  transfer(amount: Float!, fromAccountId: ID!, toAccountId: ID!): AccountType!
+}
+
 type Query {
   stupidShit: StupidShitType!
   account(accountId: ID!): AccountType
   accounts: [AccountType!]!
+  transactions(accountId: ID!): [TransactionType!]!
   recentTransactions: [TransactionType!]!
   transaction(accountId: ID!, transactionId: ID!): TransactionType
-  transactions(accountId: ID!): [TransactionType!]!
 }
 
 input StupidShitInput {

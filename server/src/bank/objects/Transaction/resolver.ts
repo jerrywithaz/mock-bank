@@ -5,27 +5,31 @@ import {
     FieldResolver,
     Root,
     Mutation,
-    Float
+    Float,
+    Ctx
 } from 'type-graphql';
 import { TransactionType, TransactionVerb } from './types';
 import { GetTransactionArgs, GetTransactionsArgs } from './args';
 import { getTransaction, getTransactions } from './apis';
+import { GraphQLContext } from '../../../types';
 
 @Resolver(() => TransactionType)
 class TransactionResolver {
 
     @Query(() => TransactionType, {nullable: true})
     async transaction(
-        @Args() { accountId, transactionId }: GetTransactionArgs
+        @Args() { accountId, transactionId }: GetTransactionArgs,
+        @Ctx() context: GraphQLContext
     ): Promise<TransactionType | null> {
-        return getTransaction(accountId, transactionId);
+        return context.loaders.transaction.load({accountId, transactionId});
     }
 
     @Query(() => [TransactionType])
     async transactions(
-        @Args() { accountId }: GetTransactionsArgs
+        @Args() { accountId }: GetTransactionsArgs,
+        @Ctx() context: GraphQLContext
     ): Promise<TransactionType[]> {
-        return getTransactions(accountId);
+        return context.loaders.transactions.load(accountId);
     }
 
     @FieldResolver()

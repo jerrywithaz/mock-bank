@@ -4,6 +4,7 @@ import jsonServer from 'json-server';
 import { ApolloServer } from 'apollo-server-express';
 import dotenv from 'dotenv';
 import buildSchema from './schema';
+import createLoaders from './loaders';
 
 dotenv.config();
 
@@ -18,9 +19,11 @@ async function bootstrap(): Promise<void> {
     const adminJsonServerRouter = jsonServer.router('src/database/admin.json');
     const bankJsonServerRouter = jsonServer.router('src/database/bank.json');
     const jsonServerMiddlewares = jsonServer.defaults();
+    const context = () => ({ loaders: createLoaders() });
     const apolloServer = new ApolloServer({
         schema,
-        playground
+        playground,
+        context
     });
 
     app.use(jsonServerMiddlewares);

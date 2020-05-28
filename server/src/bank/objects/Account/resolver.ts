@@ -5,41 +5,72 @@ import {
     FieldResolver,
     Root,
     Mutation,
-    Float
+    Float,
+    Ctx
 } from 'type-graphql';
-import { AccountType } from './types';
+import { AccountType, TransferResult } from './types';
 import { TransactionType } from '../Transaction/types';
-import { getAccount, getAccounts, getRecentTransactions } from './apis';
-import { GetAccountArgs } from './args';
+import { getRecentTransactions, makeTransfer } from './apis';
+import { GetAccountArgs, AccountTransferArgs } from './args';
+import { GraphQLContext } from '../../../types';
 
 @Resolver(() => AccountType)
 class AccountResolver {
 
     @Query(() => AccountType, { nullable: true })
     async account(
-        @Args() { accountId }: GetAccountArgs
+        @Args() { accountId }: GetAccountArgs,
+        @Ctx() context: GraphQLContext
     ): Promise<AccountType | null> {
-        return await getAccount(accountId) || null;
+        try {
+            return await context.loaders.accounts.load(accountId);
+        } catch (error) {
+            return null;
+        }
     }
 
     @Query(() => [AccountType])
     async accounts(
+        @Ctx() context: GraphQLContext
     ): Promise<AccountType[]> {
-        return await getAccounts();
+        return await context.loaders.accounts.loadAllWithoutErrors();
+    }
+
+    @Query(() => [TransactionType])
+    async transactions(
+        accountId: string,
+        @Ctx() context: GraphQLContext
+    ): Promise<TransactionType[]> {
+        return await context.loaders.transactions.load(accountId);
     }
 
     @Query(() => [TransactionType])
     async recentTransactions(
+        @Ctx() context: GraphQLContext
     ): Promise<TransactionType[]> {
-        return await getRecentTransactions();
+        return await getRecentTransactions(context);
     }
 
     @FieldResolver(() => Float)
-    availableBalance(
-        @Root() account: AccountType
-    ): number {
-        const { availableBalance = 0, amount = 0 } = account.transactions[0];
+    async availableBalance(
+        @Root() account: AccountType,
+        @Ctx() context: GraphQLContext
+    ): Promise<number> {
+        const transactions = await context.loaders.transactions.load(account.id);
+        const { availableBalance, amount } = transactions.length ? transactions[0] : { availableBalance: 0, amount: 0 };
         return availableBalance + amount;
+    }
+
+    @Mutation(() => AccountType)
+    async transfer(
+        @Args() {
+            amount,
+            fromAccountId,
+            toAccountId
+        }: AccountTransferArgs,
+        @Ctx() context: GraphQLContext
+    ): Promise<TransferResult | Error> {
+        return await makeTransfer(context, fromAccountId, toAccountId, amount);
     }
 
 }

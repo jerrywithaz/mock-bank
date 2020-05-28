@@ -33,7 +33,7 @@ const AccountsSummary: FunctionComponent<AccountsSummaryProps> = ({ accounts }) 
                     <Table<AccountHomeAccountSummaryQuery>
                         columns={columns}
                         dataSource={accounts}
-                        rowKey={"id"} />
+                        rowKey={"id"}/>
                 ) : null}
             </Card>
         </Styled.AccountsSummary>

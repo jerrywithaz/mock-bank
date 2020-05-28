@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID, Float, InputType } from 'type-graphql';
 import { TransactionType } from '../Transaction/types';
+import LoadAllDataLoader from '../../../utils/LoadAllDataLoader';
 
 @ObjectType({description: "The Account Object Type."})
 @InputType("AccountInput")
@@ -27,3 +28,14 @@ export class AccountType {
     type: "checking" | "savings" | "mma" | "ira";
 
 }
+
+export type TransferResult = {
+    fromAccount: AccountType;
+    toAccount: AccountType;
+};
+
+export type AccountsDataLoader = LoadAllDataLoader<string, AccountType>;
+
+export type AccountLoaders = {
+    accounts: AccountsDataLoader;
+};
