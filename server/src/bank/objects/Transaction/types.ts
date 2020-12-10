@@ -1,7 +1,8 @@
 import { ObjectType, Field, ID, Float, InputType } from 'type-graphql';
 import DataLoader from 'dataloader';
+import LoadAllDataLoader from '../../../utils/LoadAllDataLoader';
 
-export type TransactionVerb = "withdrawal" | "deposit" | "transferFrom" | "transferTo" | "check";
+export type TransactionVerb = "withdrawal" | "deposit" | "transfer" | "check";
 
 @ObjectType({description: "The Transaction Object Type."})
 @InputType("TransactionInput")
@@ -9,6 +10,9 @@ export class TransactionType {
 
     @Field(() => ID)
     id: string;
+
+    @Field()
+    accountId: string;
 
     @Field()
     date: string;
@@ -27,11 +31,20 @@ export class TransactionType {
 
 }
 
-export type SingleTransactionDataLoader = DataLoader<{accountId: string, transactionId: string}, TransactionType | null>;
+export type TransactionLoaderLoadAllOptions = { 
+    accountId: string; 
+};
 
-export type CollectionTransactionDataLoader = DataLoader<string, TransactionType[]>;
+export type SingleTransactionLoaderKey = {
+    id: string;
+    accountId: string;
+};
+
+export type SingleAccountTransactionDataLoader = LoadAllDataLoader<string, TransactionType | null, TransactionLoaderLoadAllOptions>;
+
+export type AllAccountsTransactionsDataLoader = DataLoader<string, TransactionType[]>;
 
 export type TransactionLoaders = {
-    transaction: SingleTransactionDataLoader;
-    transactions: CollectionTransactionDataLoader;
+    transactions: SingleAccountTransactionDataLoader;
+    allTransactions: AllAccountsTransactionsDataLoader;
 };

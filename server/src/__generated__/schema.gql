@@ -25,7 +25,7 @@ type AccountType {
 }
 
 type Mutation {
-  transfer(amount: Float!, fromAccountId: ID!, toAccountId: ID!): AccountType!
+  transfer(amount: Float!, fromAccountId: ID!, toAccountId: ID!): TransferResultType!
 }
 
 type Query {
@@ -148,6 +148,7 @@ type StupidShitType {
 
 input TransactionInput {
   id: ID!
+  accountId: String!
   date: String!
   description: String!
   amount: Float!
@@ -158,9 +159,16 @@ input TransactionInput {
 """The Transaction Object Type."""
 type TransactionType {
   id: ID!
+  accountId: String!
   date: String!
   description: String!
   amount: Float!
   availableBalance: Float!
   type: String!
+}
+
+"""The Transfer Result Object Type."""
+type TransferResultType {
+  fromAccount: AccountType!
+  toAccount: AccountType!
 }

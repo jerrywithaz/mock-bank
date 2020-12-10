@@ -8,9 +8,8 @@ import {
     Float,
     Ctx
 } from 'type-graphql';
-import { TransactionType, TransactionVerb } from './types';
+import { TransactionType } from './types';
 import { GetTransactionArgs, GetTransactionsArgs } from './args';
-import { getTransaction, getTransactions } from './apis';
 import { GraphQLContext } from '../../../types';
 
 @Resolver(() => TransactionType)
@@ -21,25 +20,15 @@ class TransactionResolver {
         @Args() { accountId, transactionId }: GetTransactionArgs,
         @Ctx() context: GraphQLContext
     ): Promise<TransactionType | null> {
-        return context.loaders.transaction.load({accountId, transactionId});
+        return context.loaders.transactions.load(transactionId, accountId);
     }
 
     @Query(() => [TransactionType])
     async transactions(
         @Args() { accountId }: GetTransactionsArgs,
         @Ctx() context: GraphQLContext
-    ): Promise<TransactionType[]> {
-        return context.loaders.transactions.load(accountId);
-    }
-
-    @FieldResolver()
-    type(
-        @Root() transaction: TransactionType
-    ): TransactionVerb {
-        if (transaction.amount === 0) {
-            throw new Error(`A Transaction with the id of ${transaction.id} has an amount of 0. `)
-        }
-        return transaction.amount > 0 ? "deposit" : "withdrawal";
+    ): Promise<(TransactionType | Error | null)[]> {
+        return context.loaders.transactions.loadAll({ accountId });
     }
 
 }

@@ -32,4 +32,7 @@ export const Card = styled(({maxHeight, fillContainer, primary, ...rest}: CardPr
             color: #ffffff;
         }
     `}
+    .ant-card-body {
+        background: #fff;
+    }
 `;

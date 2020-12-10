@@ -19,7 +19,7 @@ export async function getAccounts(): Promise<AccountType[]> {
 
 export async function getRecentTransactions(context: GraphQLContext): Promise<TransactionType[]> {
     const accounts = await context.loaders.accounts.loadAllWithoutErrors();
-    const transactionsData = await context.loaders.transactions.loadMany(accounts.map((account) => account.id));
+    const transactionsData = await context.loaders.allTransactions.loadMany(accounts.map((account) => account.id));
     const transactions = transactionsData.reduce<TransactionType[]>((accumulator, transactionsMaybe) => {
         if (Array.isArray(transactionsMaybe)) {
             accumulator.push(...transactionsMaybe);
@@ -31,17 +31,50 @@ export async function getRecentTransactions(context: GraphQLContext): Promise<Tr
     return recentTransactions;
 }
 
-export async function makeTransfer(context: GraphQLContext, fromAccountId: string, toAccountId: string, amount: number): Promise<TransferResult | Error> {
+export async function updateAvailableBalance(
+    accountId: string, 
+    availableBalance: number
+): Promise<AccountType> {
+
+    const fixedAvailableBalance = parseFloat(availableBalance.toFixed(2));
+    const response = await api.patch<AccountType>(`/json/bank/accounts/${accountId}`, {
+        availableBalance: fixedAvailableBalance
+    });
+
+    return response.data;
+}
+
+export async function makeTransfer(
+    context: GraphQLContext, 
+    fromAccountId: string, 
+    toAccountId: string, 
+    amount: number
+): Promise<TransferResult | Error> {
+
     const fromAccount = await context.loaders.accounts.load(fromAccountId);
     const toAccount = await context.loaders.accounts.load(toAccountId);
     const floatAmount = parseFloat(amount.toFixed(2));
+    const lastFourOfFromAccount = fromAccount.accountNumber.slice(fromAccount.accountNumber.length - 4);
+    const lastFourOfToAccount = toAccount.accountNumber.slice(toAccount.accountNumber.length - 4);
 
-    await createTransaction(fromAccountId, -floatAmount, "transferTo", `Transfer to #${toAccount.accountNumber.slice(toAccount.accountNumber.length - 4)}`);
-    await createTransaction(toAccountId, floatAmount, "transferFrom", `Transfer from #${fromAccount.accountNumber.slice(fromAccount.accountNumber.length - 4)}`);
+    if (fromAccount.availableBalance >= floatAmount) {
 
-    return {
-        fromAccount: await context.loaders.accounts.clear(fromAccountId).load(fromAccountId),
-        toAccount: await context.loaders.accounts.clear(toAccountId).load(toAccountId)
-    };
+        await updateAvailableBalance(fromAccountId, fromAccount.availableBalance - floatAmount);
+        await updateAvailableBalance(toAccountId, toAccount.availableBalance + floatAmount);
+        await createTransaction(fromAccountId, -floatAmount, "transfer", `Transfer to #${lastFourOfToAccount}`);
+        await createTransaction(toAccountId, floatAmount, "transfer", `Transfer from #${lastFourOfFromAccount}`);
+
+        const mutatedFromAccount = await context.loaders.accounts.clear(fromAccountId).load(fromAccountId);
+        const mutatedToAccount = await context.loaders.accounts.clear(toAccountId).load(toAccountId);
+
+        return {
+            fromAccount: mutatedFromAccount,
+            toAccount: mutatedToAccount
+        };
+
+    }
+    else {
+        return new Error(`Cannot make transfer from account ending in ${lastFourOfFromAccount} because there are not enough funds.`);
+    }
 
 }

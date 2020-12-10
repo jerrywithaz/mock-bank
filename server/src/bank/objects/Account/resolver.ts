@@ -8,7 +8,7 @@ import {
     Float,
     Ctx
 } from 'type-graphql';
-import { AccountType, TransferResult } from './types';
+import { AccountType, TransferResult, TransferResultType } from './types';
 import { TransactionType } from '../Transaction/types';
 import { getRecentTransactions, makeTransfer } from './apis';
 import { GetAccountArgs, AccountTransferArgs } from './args';
@@ -51,17 +51,17 @@ class AccountResolver {
         return await getRecentTransactions(context);
     }
 
-    @FieldResolver(() => Float)
-    async availableBalance(
-        @Root() account: AccountType,
-        @Ctx() context: GraphQLContext
-    ): Promise<number> {
-        const transactions = await context.loaders.transactions.load(account.id);
-        const { availableBalance, amount } = transactions.length ? transactions[0] : { availableBalance: 0, amount: 0 };
-        return availableBalance + amount;
-    }
+    // @FieldResolver(() => Float)
+    // async availableBalance(
+    //     @Root() account: AccountType,
+    //     @Ctx() context: GraphQLContext
+    // ): Promise<number> {
+    //     const transactions = await context.loaders.transactions.load(account.id);
+    //     const { availableBalance, amount } = transactions.length ? transactions[0] : { availableBalance: 0, amount: 0 };
+    //     return availableBalance + amount;
+    // }
 
-    @Mutation(() => AccountType)
+    @Mutation(() => TransferResultType)
     async transfer(
         @Args() {
             amount,

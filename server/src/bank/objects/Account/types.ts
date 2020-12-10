@@ -28,6 +28,16 @@ export class AccountType {
     type: "checking" | "savings" | "mma" | "ira";
 
 }
+@ObjectType({description: "The Transfer Result Object Type."})
+export class TransferResultType {
+
+    @Field(() => AccountType)
+    fromAccount: AccountType;
+
+    @Field(() => AccountType)
+    toAccount: AccountType;
+
+}
 
 export type TransferResult = {
     fromAccount: AccountType;

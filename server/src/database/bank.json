@@ -1,65 +1,125 @@
 {
-    "user": {
-        "firstName": "Zerry",
-        "lastName": "Zerry",
-        "streetAddress": "53584 Monahan Crossing",
-        "city": "Caroletown",
-        "state": "NM",
-        "zip": "72412",
-        "phoneNumber": "832-289-0987",
-        "username": "jacoblakes",
-        "password": "dewytge37gy",
-        "email": "jacoblakes@gm.com"
+  "user": {
+    "firstName": "Zerry",
+    "lastName": "Zerry",
+    "streetAddress": "53584 Monahan Crossing",
+    "city": "Caroletown",
+    "state": "NM",
+    "zip": "72412",
+    "phoneNumber": "832-289-0987",
+    "username": "jacoblakes",
+    "password": "dewytge37gy",
+    "email": "jacoblakes@gm.com"
+  },
+  "accounts": [
+    {
+      "id": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "accountNumber": "1794965379375739",
+      "routingNumber": "100067590",
+      "availableBalance": 50.04,
+      "name": "Primary Checkings",
+      "type": "checking"
     },
-    "accounts": [
-        {
-            "id": "000a6828-34f9-4b1d-92fb-8afc757defa8",
-            "accountNumber": "1794965379375739",
-            "routingNumber": "100067590",
-            "name": "Primary Checkings",
-            "type": "checking"
-        },
-        {
-            "id": "5129c730-07ef-4579-9ec3-8a9150faced9",
-            "accountNumber": "4956583075489753",
-            "routingNumber": "100067590",
-            "name": "Primary Savings",
-            "type": "savings"
-        }
-    ],
-    "cards": [],
-    "transactions": [
-        {
-            "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
-            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
-            "date": "2020-03-27T23:10:12-05:00",
-            "description": "HULU",
-            "amount": -20.01,
-            "availableBalance": 100.05
-        },
-        {
-            "id": "2cb04b0a-6b39-415b-9b91-ac92af2a28d8",
-            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
-            "date": "2020-03-27T22:15:12-05:00",
-            "description": "Spotify*USA",
-            "amount": -14.51,
-            "availableBalance": 114.56
-        },
-        {
-            "id": "e2c70644-6cb5-4089-9478-83d9cc7f21f0",
-            "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
-            "date": "2020-03-27T20:10:12-05:00",
-            "description": "YoutubeRed*USA",
-            "amount": 16.91,
-            "availableBalance": 131.47
-        },
-        {
-            "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
-            "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
-            "date": "2020-03-27T23:10:12-05:00",
-            "description": "Direct Deposit - Microsoft",
-            "amount": 1506.89,
-            "availableBalance": 0.00
-        }
-    ]
+    {
+      "id": "5129c730-07ef-4579-9ec3-8a9150faced9",
+      "accountNumber": "4956583075489753",
+      "routingNumber": "100067590",
+      "availableBalance": 1536.89,
+      "name": "Primary Savings",
+      "type": "savings"
+    }
+  ],
+  "cards": [],
+  "transactions": [
+    {
+      "id": "bac315b2-a7d2-4ff0-9bc2-e592e82c0a52",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "date": "2020-03-27T23:10:12-05:00",
+      "description": "HULU",
+      "type": "withdrawal",
+      "amount": -20.01,
+      "availableBalance": 100.05
+    },
+    {
+      "id": "2cb04b0a-6b39-415b-9b91-ac92af2a28d8",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "date": "2020-03-27T22:15:12-05:00",
+      "type": "withdrawal",
+      "description": "Spotify*USA",
+      "amount": -14.51,
+      "availableBalance": 114.56
+    },
+    {
+      "id": "e2c70644-6cb5-4089-9478-83d9cc7f21f0",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "date": "2020-03-27T20:10:12-05:00",
+      "description": "YoutubeRed*USA",
+      "amount": 16.91,
+      "type": "deposit",
+      "availableBalance": 131.47
+    },
+    {
+      "id": "687e6830-9c7b-48eb-814e-d4de8fed0132",
+      "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
+      "date": "2020-03-27T23:10:12-05:00",
+      "description": "Direct Deposit - Microsoft",
+      "amount": 1506.89,
+      "type": "deposit",
+      "availableBalance": 0
+    },
+    {
+      "id": "68159c9c-f65c-4d2c-86d2-c00f30da9a5e",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "amount": -10,
+      "date": "2020-05-29T22:19:09.116Z",
+      "type": "transfer",
+      "availableBalance": 70.04,
+      "description": "Transfer to #9753"
+    },
+    {
+      "id": "c66b58e5-3d13-4d12-b1b8-4946cf9a847e",
+      "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
+      "amount": 10,
+      "date": "2020-05-29T22:19:09.145Z",
+      "type": "transfer",
+      "availableBalance": 1516.89,
+      "description": "Transfer from #5739"
+    },
+    {
+      "id": "98064e86-1413-4555-af24-7c1336c32254",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "amount": -10,
+      "date": "2020-05-29T22:26:13.161Z",
+      "type": "transfer",
+      "availableBalance": 60.04,
+      "description": "Transfer to #9753"
+    },
+    {
+      "id": "3b605be8-a37b-4df4-ba65-821f2f09efa0",
+      "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
+      "amount": 10,
+      "date": "2020-05-29T22:26:13.183Z",
+      "type": "transfer",
+      "availableBalance": 1526.89,
+      "description": "Transfer from #5739"
+    },
+    {
+      "id": "f09be68d-105b-4c4d-ac1d-0f924d075439",
+      "accountId": "000a6828-34f9-4b1d-92fb-8afc757defa8",
+      "amount": -10,
+      "date": "2020-05-29T22:27:30.367Z",
+      "type": "transfer",
+      "availableBalance": 50.04,
+      "description": "Transfer to #9753"
+    },
+    {
+      "id": "9a4b48e4-e575-4f62-a9c6-eb3266d8dfa3",
+      "accountId": "5129c730-07ef-4579-9ec3-8a9150faced9",
+      "amount": 10,
+      "date": "2020-05-29T22:27:30.393Z",
+      "type": "transfer",
+      "availableBalance": 1536.89,
+      "description": "Transfer from #5739"
+    }
+  ]
 }

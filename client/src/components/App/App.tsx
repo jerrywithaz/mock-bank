@@ -1,5 +1,6 @@
 import React from 'react';
 import { 
+  ROUTE_ADMIN_HOME,
   ROUTE_ACCOUNTS_HOME, 
   ROUTE_MAIL_HOME, 
   ROUTE_HOME, 
@@ -14,6 +15,7 @@ import ThemeProvider from 'providers/ThemeProvider';
 import RouteProvider from 'providers/RouteProvider';
 import StupidShitProvider from 'providers/StupidShitProvider';
 import ReactRouterProvider from 'providers/ReactRouterProvider';
+import AdminHome from 'views/AdminHome';
 import AccountsHome from 'views/AccountsHome';
 import MailHome from 'views/MailHome';
 import FaqHome from 'views/FaqHome';
@@ -34,6 +36,10 @@ function App() {
             <StupidShitProvider>
               <Dashboard>
                 <Switch>
+                <AnnoyingRoute
+                    exact={true}
+                    path={ROUTE_ADMIN_HOME}
+                    component={AdminHome} />
                   <AnnoyingRoute
                     exact={true}
                     path={ROUTE_HOME}
